@@ -4,7 +4,7 @@ import dj_database_url
 from decouple import Csv, config
 from django.core.management.utils import get_random_secret_key
 
-from .settings.unfold import *
+from .components.unfold import *
 
 # ------------------------------------
 # Base Directory and Environment
@@ -15,16 +15,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Security
 # ------------------------------------
 DEBUG = config("DEBUG", default=True, cast=bool)
+ALLOWED_HOSTS = config("ALLOWED_HOSTS", cast=Csv())
 
 if DEBUG:
     SECRET_KEY = config("SECRET_KEY", default=get_random_secret_key())
+    ALLOWED_HOSTS += ["127.0.0.1", "localhost"]
+    ALLOWED_HOSTS = list(set(ALLOWED_HOSTS))
 else:
     SECRET_KEY = config("SECRET_KEY")
-
-ALLOWED_HOSTS = config("ALLOWED_HOSTS", cast=Csv())
-
-DEFAULT_HOSTS = ["127.0.0.1", "localhost"] if DEBUG else []
-ALLOWED_HOSTS = config("ALLOWED_HOSTS", cast=Csv(), default=DEFAULT_HOSTS)
 
 # ------------------------------------
 # Database Configuration
@@ -50,7 +48,6 @@ INSTALLED_APPS = [
     # Core Django Apps
     "django.contrib.admin",
     "django.contrib.auth",
-    "django.contrib.sites",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",

@@ -1,4 +1,3 @@
-from config.permissions import get_permission_check, get_permissions_for_app
 from django.templatetags.static import static
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
@@ -56,26 +55,13 @@ UNFOLD = {
                         "link": reverse_lazy("admin:users_customuser_changelist"),
                         "title": _("Users"),
                         "icon": "person",
-                        "permission": get_permission_check("users", "customuser"),
+                        "permission": lambda request: request.user.is_authenticated,
                     },
                     {
                         "link": reverse_lazy("admin:users_role_changelist"),
                         "title": _("Roles"),
                         "icon": "admin_panel_settings",
-                        "permission": get_permission_check("users", "role"),
-                    },
-                ],
-            },
-            {
-                "title": _("System Settings"),
-                "collapsible": True,
-                "permission": get_permissions_for_app("sites"),
-                "items": [
-                    {
-                        "link": reverse_lazy("admin:sites_site_changelist"),
-                        "title": _("Sites"),
-                        "icon": "web",
-                        "permission": get_permission_check("sites", "site"),
+                        "permission": lambda request: request.user.is_authenticated,
                     },
                 ],
             },

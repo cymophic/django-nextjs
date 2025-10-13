@@ -1,0 +1,7 @@
+[project]
+name = "django-nextjs"
+version = "0.1.0"
+description = "Full-stack practice project using Django Ninja REST API with Next.js frontend"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = []

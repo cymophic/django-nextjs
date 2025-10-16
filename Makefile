@@ -12,3 +12,7 @@ clean-mac:
 
 clean-windows:
 	python -c "import pathlib, shutil; [shutil.rmtree(p) for p in pathlib.Path('.').rglob('__pycache__') if '.venv' not in p.parts]"
+
+repo-labels:
+	@echo "Fetching GitHub labels..."
+	@gh label list || (echo "GitHub CLI not configured. Run 'gh auth login' first." && exit 1)

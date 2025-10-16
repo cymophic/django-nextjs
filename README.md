@@ -127,6 +127,7 @@ npm run dev
 make help              # Show available global commands
 make clean-mac         # Clean Python cache (macOS/Linux)
 make clean-windows     # Clean Python cache (Windows)
+make repo-labels       # View all GitHub labels for this repo (requires GitHub CLI)
 ```
 
 ### Backend Commands (from backend/)

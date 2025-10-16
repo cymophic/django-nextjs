@@ -17,12 +17,9 @@ Backend API of the full-stack application, built with Django and Django Ninja.
 ```
 backend/
 ├── config/
-│   ├── components/
-│   │   ├── __init__.py
-│   │   └── unfold.py      # Unfold admin configuration
 │   ├── __init__.py
 │   ├── asgi.py
-│   ├── settings.py        # Main Django settings
+│   ├── settings.py        # Project settings
 │   ├── urls.py
 │   └── wsgi.py
 ├── .env                   # Environment variables (not committed)
@@ -54,7 +51,6 @@ backend/
 2. **Set up environment variables:**
    ```bash
    cp .env.example .env
-
    # Edit .env with your database credentials and relevant settings
    ```
 

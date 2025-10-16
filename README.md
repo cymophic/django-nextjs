@@ -18,13 +18,13 @@ django-nextjs/
 │   └── README.md     # Frontend-specific documentation
 ├── .gitignore        # Root gitignore (OS files)
 ├── Makefile          # Global task runner
-└── README.md         # This file
+└── README.md
 ```
 
 ## Tech Stack
 
 ### Backend
-- **Django 5.2+** with **Django Ninja** for REST API
+- **Django 5.27+** with **Django Ninja** for REST API
 - **PostgreSQL** database
 - **UV** package manager
 - **Django Unfold** admin interface
@@ -48,7 +48,7 @@ django-nextjs/
 
 1. **Clone the repository:**
    ```bash
-   git clone <your-repo-url>
+   git clone https://github.com/cymophic/django-nextjs.git
 
    cd django-nextjs
    ```

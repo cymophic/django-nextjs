@@ -19,7 +19,7 @@ DEBUG = config("DEBUG", default=True, cast=bool)
 ALLOWED_HOSTS = config("ALLOWED_HOSTS", cast=Csv())
 
 if DEBUG:
-    SECRET_KEY = config("SECRET_KEY", default=get_random_secret_key())
+    SECRET_KEY = config("SECRET_KEY", default="") or get_random_secret_key()
     ALLOWED_HOSTS += ["127.0.0.1", "localhost"]
     ALLOWED_HOSTS = list(set(ALLOWED_HOSTS))
 else:

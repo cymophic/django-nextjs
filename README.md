@@ -97,7 +97,7 @@ npm run dev
 
 - **Frontend:** http://localhost:3000
 - **Backend API:** http://localhost:8000/api/
-- **Django Admin:** http://localhost:8000/admin/ (URL configurable via ADMIN_URL)
+- **Django Admin:** http://localhost:8000/{ADMIN_URL} (default: /admin)
 
 ## Documentation
 

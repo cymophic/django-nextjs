@@ -45,6 +45,7 @@ else:
 INSTALLED_APPS = [
     # Third-party Packages
     "unfold",
+    "corsheaders",
     # Core Django Apps
     "django.contrib.admin",
     "django.contrib.auth",
@@ -60,6 +61,7 @@ INSTALLED_APPS = [
 # ------------------------------------
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "corsheaders.middleware.CorsMiddleware",  # CORS Middleware
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -138,3 +140,16 @@ MEDIA_ROOT = BASE_DIR / "media"
 # Default Primary Key
 # ------------------------------------
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# ------------------------------------
+# CORS Configuration
+# ------------------------------------
+if DEBUG:
+    CORS_ALLOWED_ORIGINS = [
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",
+    ]
+else:
+    CORS_ALLOWED_ORIGINS = config("CSRF_TRUSTED_ORIGINS", cast=Csv())
+
+CORS_ALLOW_CREDENTIALS = True

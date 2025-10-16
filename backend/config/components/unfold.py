@@ -52,14 +52,14 @@ UNFOLD = {
                 "permission": lambda request: request.user.is_superuser,
                 "items": [
                     {
-                        "link": reverse_lazy("admin:users_customuser_changelist"),
+                        "link": reverse_lazy("admin:auth_user_changelist"),  # Changed
                         "title": _("Users"),
                         "icon": "person",
                         "permission": lambda request: request.user.is_authenticated,
                     },
                     {
-                        "link": reverse_lazy("admin:users_role_changelist"),
-                        "title": _("Roles"),
+                        "link": reverse_lazy("admin:auth_group_changelist"),  # Changed
+                        "title": _("Groups"),  # Changed from "Roles"
                         "icon": "admin_panel_settings",
                         "permission": lambda request: request.user.is_authenticated,
                     },

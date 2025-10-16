@@ -15,13 +15,6 @@ superuser:
 collectstatic:
 	uv run python manage.py collectstatic --no-input
 
-clean-mac:
-	find . -type f \( -name "*.py[co]" -o -name ".DS_Store" \) -delete
-	find . -type d -name "__pycache__" -delete
-
-clean-windows:
-	python -c "import pathlib, shutil; [shutil.rmtree(p) for p in pathlib.Path('.').rglob('__pycache__') if '.venv' not in p.parts]"
-
 help:
 	@echo ""
 	@echo "Available make commands:"
@@ -31,4 +24,3 @@ help:
 	@echo "  make migrate          			- Applies database migrations to the database."
 	@echo "  make superuser        			- Creates a Django superuser account."
 	@echo "  make collectstatic    			- Collects static files for deployment."
-	@echo "  make clean-(mac/windows)       - Removes all build artifacts"

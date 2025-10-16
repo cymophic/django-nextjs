@@ -100,6 +100,7 @@ See `.env.example` for required variables:
 - `SECRET_KEY` - Django secret key (auto-generated in DEBUG mode if not set)
 - `DEBUG` - Debug mode (`True`/`False`)
 - `ALLOWED_HOSTS` - Comma-separated allowed hosts (e.g., `127.0.0.1,localhost`)
+- `ADMIN_URL` - Custom admin panel URL (e.g., `admin/` or `secret-admin/`)
 
 ### Production Settings
 - `STATIC_ROOT` - Static files directory for production (e.g., `/var/www/static/`)
@@ -107,7 +108,7 @@ See `.env.example` for required variables:
 
 ## Development
 
-- Admin interface: `http://127.0.0.1:8000/admin`
+- Admin interface: `http://127.0.0.1:8000/{ADMIN_URL}` (default: `admin/`)
 - API documentation: (to be added with Django Ninja)
 
 ## Configuration Details
